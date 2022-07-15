@@ -22,12 +22,38 @@ class ViewController: UIViewController {
     
     
     
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        mainView.layer.cornerRadius = 10
+        mainView.backgroundColor = .black
+        
+        redSlider.minimumTrackTintColor = .red
+        greenSlider.minimumTrackTintColor = .green
+    
+        //MARK: Slider
+        redSlider.value = 0
+        greenSlider.value = 0
+        blueSlider.value = 0
+        
+        
+       
     }
 
-    //MARK: Slider
+  
+    @IBAction func SliderAction(_ sender: Any) {
+        
+        
+        self.mainView.backgroundColor = UIColor(red:CGFloat(redSlider.value)/255 , green: CGFloat(greenSlider.value)/255, blue: CGFloat(blueSlider.value)/255, alpha: 1)
+        
+        redLabel.text = String(Int(redSlider.value))
+        greenLabel.text = String(Int(greenSlider.value))
+        blueLabel.text = String(Int(blueSlider.value))
+        
+    }
     
 
 }
